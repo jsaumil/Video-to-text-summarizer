@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video to Summary Flowchart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .flowchart {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .flowchart svg {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Video to Summary Flowchart</h1>
+    <div class="flowchart">
+        <!-- Embedded SVG Flowchart -->
+        <svg width="800pt" height="600pt" viewBox="0.00 0.00 800.00 600.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <!-- Start Node -->
+            <ellipse cx="400" cy="50" rx="60" ry="30" fill="#4CAF50" stroke="#2E7D32" stroke-width="2" />
+            <text x="400" y="55" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Start</text>
+
+            <!-- Upload Video File Node -->
+            <rect x="300" y="120" width="200" height="40" fill="#2196F3" stroke="#1565C0" stroke-width="2" />
+            <text x="400" y="145" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Upload Video File</text>
+
+            <!-- Save Video to Temporary Location Node -->
+            <rect x="300" y="200" width="200" height="40" fill="#2196F3" stroke="#1565C0" stroke-width="2" />
+            <text x="400" y="225" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Save Video to Temp Location</text>
+
+            <!-- Extract Audio from Video (FFmpeg) Node -->
+            <rect x="300" y="280" width="200" height="40" fill="#FF9800" stroke="#EF6C00" stroke-width="2" />
+            <text x="400" y="305" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Extract Audio (FFmpeg)</text>
+
+            <!-- Transcribe Audio to Text (Whisper) Node -->
+            <rect x="300" y="360" width="200" height="40" fill="#FF9800" stroke="#EF6C00" stroke-width="2" />
+            <text x="400" y="385" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Transcribe Audio (Whisper)</text>
+
+            <!-- Display Transcribed Text (Streamlit) Node -->
+            <rect x="300" y="440" width="200" height="40" fill="#9C27B0" stroke="#6A1B9A" stroke-width="2" />
+            <text x="400" y="465" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Display Transcribed Text</text>
+
+            <!-- Summarize Text (Ollama) Node -->
+            <rect x="300" y="520" width="200" height="40" fill="#9C27B0" stroke="#6A1B9A" stroke-width="2" />
+            <text x="400" y="545" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Summarize Text (Ollama)</text>
+
+            <!-- Display Summary (Streamlit) Node -->
+            <rect x="300" y="600" width="200" height="40" fill="#9C27B0" stroke="#6A1B9A" stroke-width="2" />
+            <text x="400" y="625" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Display Summary</text>
+
+            <!-- End Node -->
+            <ellipse cx="400" cy="680" rx="60" ry="30" fill="#F44336" stroke="#D32F2F" stroke-width="2" />
+            <text x="400" y="685" font-family="Arial" font-size="14" fill="white" text-anchor="middle">End</text>
+
+            <!-- Arrows -->
+            <path d="M400,80 L400,120" stroke="#333" stroke-width="2" fill="none" />
+            <path d="M400,160 L400,200" stroke="#333" stroke-width="2" fill="none" />
+            <path d="M400,240 L400,280" stroke="#333" stroke-width="2" fill="none" />
+            <path d="M400,320 L400,360" stroke="#333" stroke-width="2" fill="none" />
+            <path d="M400,400 L400,440" stroke="#333" stroke-width="2" fill="none" />
+            <path d="M400,480 L400,520" stroke="#333" stroke-width="2" fill="none" />
+            <path d="M400,560 L400,600" stroke="#333" stroke-width="2" fill="none" />
+            <path d="M400,640 L400,680" stroke="#333" stroke-width="2" fill="none" />
+        </svg>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<form id="uploadForm">
+    <input type="file" id="videoFile" accept=".mp4" required />
+    <button type="submit" id="submitBtn">Upload and Summarize</button>
+  </form>
+  <div id="loading" style="display: none;">Processing... Please wait.</div>
+  <div id="summary" class="summary" style="display: none;">
+    <h2>Summary:</h2>
+    <p id="summaryText"></p>
+  </div>
+  
+  <script>
+    document.getElementById("uploadForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+  
+      const fileInput = document.getElementById("videoFile");
+      const submitBtn = document.getElementById("submitBtn");
+      const loadingDiv = document.getElementById("loading");
+      const summaryDiv = document.getElementById("summary");
+      const summaryText = document.getElementById("summaryText");
+  
+      if (!fileInput.files.length) {
+        alert("Please select a video file.");
+        return;
+      }
+  
+      const file = fileInput.files[0];
+      const formData = new FormData();
+      formData.append("file", file);
+  
+      // Disable the submit button and show loading message
+      submitBtn.disabled = true;
+      loadingDiv.style.display = "block";
+      summaryDiv.style.display = "none";
+  
+      try {
+        const response = await fetch("http://localhost:5000/process-video", {
+          method: "POST",
+          body: formData,
+        });
+  
+        if (!response.ok) {
+          throw new Error("Failed to process video.");
+        }
+  
+        const data = await response.json();
+        summaryText.textContent = data.summary;
+        summaryDiv.style.display = "block";
+      } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred while processing the video.");
+      } finally {
+        // Re-enable the submit button and hide loading message
+        submitBtn.disabled = false;
+        loadingDiv.style.display = "none";
+      }
+    });
+  </script>

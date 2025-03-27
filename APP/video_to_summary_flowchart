@@ -1,0 +1,20 @@
+digraph Video_to_Summary_Flowchart {
+	rankdir=TB
+	Start [label=Start]
+	Upload [label="Upload Video File"]
+	Save [label="Save Video to Temporary Location"]
+	Extract [label="Extract Audio from Video (FFmpeg)"]
+	Transcribe [label="Transcribe Audio to Text (Whisper)"]
+	DisplayText [label="Display Transcribed Text (Streamlit)"]
+	Summarize [label="Summarize Text (Ollama)"]
+	DisplaySummary [label="Display Summary (Streamlit)"]
+	End [label=End]
+	Start -> Upload
+	Upload -> Save
+	Save -> Extract
+	Extract -> Transcribe
+	Transcribe -> DisplayText
+	DisplayText -> Summarize
+	Summarize -> DisplaySummary
+	DisplaySummary -> End
+}
